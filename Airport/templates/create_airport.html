@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать аэропорт</title>
+</head>
+<body>
+    <h1>Создать аэропорт</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать</button>
+    </form>
+    <a href="{% url 'view_data' %}">Вернуться к списку данных</a>
+</body>
+</html>

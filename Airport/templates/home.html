@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все данные</title>
+</head>
+<body>
+    <h1>Список всех аэропортов</h1>
+        {% for airport in airports %}
+            {{ airport.name }} ({{ airport.code }})
+        {% endfor %}
+   
+
+    <h1>Список всех самолетов</h1>
+        {% for plane in planes %}
+            <li>{{ plane.model }} — Вместимость: {{ plane.capacity }}, Дальность: {{ plane.distance }} км, Расход: {{ plane.consumtion }}
+        {% endfor %}
+
+    <h1>Список всех пассажиров</h1>
+        {% for traveler in travelers %}
+            {{ traveler.fio }} — Паспорт: {{ traveler.passport }}, Дата рождения: {{ traveler.birth_date }}
+        {% endfor %}
+    
+
+    <h1>Список всех рейсов</h1>
+    
+        {% for flight in flights %}
+            {{ flight.source.name }} - {{ flight.destination.name }} | Пассажир: {{ flight.traveler.fio }} | Время вылета: {{ flight.date_depart }} | Время прилета: {{ flight.date_arrive }}
+        {% endfor %}
+    
+
+    <hr>
+    <a href="{% url 'create_airport' %}">Добавить аэропорт</a> |
+    <a href="{% url 'create_plane' %}">Добавить самолет</a> |
+    <a href="{% url 'create_travel' %}">Добавить пассажира</a> |
+    <a href="{% url 'create_flight' %}">Добавить рейс</a>
+</body>
+</html>
